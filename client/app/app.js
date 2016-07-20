@@ -3,4 +3,26 @@ angular.module('app', [
   'app.services',
   'app.chat',
   'ngRoute'
-]);
+])
+.config(function($routeProvider, $httpProvider) {
+  $routeProvider
+    .when('/', {
+      templateUrl: 'app/auth/login.html',
+      controller: 'AuthController'
+    })
+    .when('/signup', {
+      templateUrl: 'app/auth/signup.html',
+      controller: 'AuthController'
+    })
+    .when('/login', {
+      templateUrl: 'app/auth/login.html',
+      controller: 'AuthController'
+    })
+    .when('/chat', {
+      templateUrl: 'app/chat/chat.html',
+      controller: 'ChatController'
+    })
+    .otherwise({
+      redirectTo:'/'
+    });
+});
